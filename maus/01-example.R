@@ -3,7 +3,7 @@
 
 x <- seq(0, 10, 0.01)
 
-y <- sin(x)
+y <- cos(x)
 
 plot(x, y, type = "l")
 
