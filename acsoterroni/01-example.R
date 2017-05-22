@@ -9,3 +9,4 @@ z <- cos(x)
 plot(x,y,type="l",col="blue",ylab="f(x)")
 lines(x,z,type="l",col="green")
 title(main="sine and cosine waves")
+
