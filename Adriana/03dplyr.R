@@ -12,6 +12,7 @@ nov_dec
 nov_dec<-filter(flights, month %in% c(11,12))
 nov_dec
 #missing values
+
 is.na()
 #flights that were delayed on arrival or departure by more than two hours 
 not_delayed <- filter(flights, arr_delay > 120, dep_delay>120)
