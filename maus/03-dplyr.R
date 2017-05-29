@@ -22,13 +22,21 @@ nov_dec <- filter(flights, month %in% c(11, 12) )
 NA == NA 
 
 # Flights that were delayed on arrival or departure by more than two hours
-not_delayed <- filter(flights, arr_delay > 120, dep_delay > 120 ) 
+flights_delayed <- filter(flights, arr_delay > 120, dep_delay > 120 ) 
 
 # Make a scatterplot of dep_delay vs arr_delay with color given by carrier
-ggplot(data = not_delayed) + 
+ggplot(data = flights_delayed) + 
   geom_point(mapping = aes(x = dep_delay, y = arr_delay, color = carrier))
 
-airlines
+# Join flights_delayed and airlines by carrier
+flights_delayed <- 
+  left_join(x = flights_delayed, y = airlines, by = c("carrier", "carrier")) 
+
+flights_delayed
+
+# Make a scatterplot of dep_delay vs arr_delay with color given by name
+ggplot(data = flights_delayed) + 
+  geom_point(mapping = aes(x = dep_delay, y = arr_delay, color = name))
 
 # Select columns by name 
 select(flights, year, month, day) 
